@@ -1,17 +1,20 @@
 'use strict';
 
-angular.module('seinfeldQuotesApp', [])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/sup-route', {
-        templateUrl: 'views/sup-route.html',
-        controller: 'supRouteCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+var seinfeldApp = angular.module('seinfeldApp', []);
+
+seinfeldApp.value('appName', 'Seinfeld Quotes');
+
+seinfeldApp.config(function ($routeProvider, $locationProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'views/home.html',
+      controller: 'homeCtrl'
+    })
+    .when('/search', {
+      templateUrl: 'views/search.html',
+      controller: 'searchCtrl'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+});

@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('seinfeldQuotesApp')
-  .controller('MainCtrl', function ($scope) {
+seinfeldApp.controller('homeCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
