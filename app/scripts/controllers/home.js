@@ -1,9 +1,13 @@
-'use strict';
+// 'use strict';
 
-seinfeldApp.controller('homeCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+seinfeldApp.controller('homeCtrl', ['$scope', 'Quotes',
+
+  function ($scope, Quotes) {
+    var getQuotes = function() {
+      Quotes.query(function(data) {
+        $scope.quotes = data;
+      });
+    };
+
+    getQuotes();
+  }]);

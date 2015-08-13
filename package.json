@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "dependencies": {
     "express": "~4.0.0",
-    "ejs": "~0.8.4"
+    "morgan": "~1.0.0",
+    "body-parser": "~1.0.0",
+    "method-override": "~1.0.0"
   },
   "devDependencies": {
     "connect-livereload": "~0.2.0",

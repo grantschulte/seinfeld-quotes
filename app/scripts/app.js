@@ -1,6 +1,9 @@
 'use strict';
 
-var seinfeldApp = angular.module('seinfeldApp', []);
+var seinfeldApp = angular.module('seinfeldApp', [
+  'ngResource',
+  'ngSanitize'
+]);
 
 seinfeldApp.value('appName', 'Seinfeld Quotes');
 
