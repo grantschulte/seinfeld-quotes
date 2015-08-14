@@ -28,17 +28,10 @@ mongoose.connect(process.env.MONGOLAB_URI || mongoURI, function(err) {
 
 // Config
 
-if (process.env.NODE_ENV === 'development') {
-  appDir = '/app';
-}
-else if (process.env.NODE_ENV === 'production') {
-  appDir = '/dist';
-}
-
-app.set('views', __dirname + appDir);
+app.set('views', __dirname + '/app');
 app.set('port', process.env.PORT || 5000);
 app.use(router);
-app.use(express.static(__dirname + appDir));
+app.use(express.static(__dirname + '/app'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
