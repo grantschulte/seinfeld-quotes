@@ -8,7 +8,6 @@ var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var dbStart        = require('./db/start');
-var dbConfig         = require('./db/config');
 
 var router = express.Router();
 var app    = express();
@@ -22,7 +21,7 @@ if (env === 'development') {
   appDir = '/app';
 }
 else if (env === 'production') {
-  appDir = '/dist';
+  appDir = '/app';
 }
 
 app.set('views', __dirname + appDir);
