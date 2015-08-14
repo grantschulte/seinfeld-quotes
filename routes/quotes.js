@@ -1,10 +1,22 @@
+'use strict';
+
 var express  = require('express');
 var quotes   = express.Router();
 var mongoose = require('mongoose');
 var Quote    = require('../models/Quote.js');
+var url      = require('url');
 
 quotes.get('/', function(req, res, next) {
-  Quote.find(function(err, quotes) {
+  var query = url.parse(req.url, true).query;
+  var params = {};
+
+  if (query.author) {
+    params = {
+      author: query.author
+    };
+  }
+
+  Quote.find(params, function(err, quotes) {
     if (err) { return next(err) }
     res.json(quotes);
   });

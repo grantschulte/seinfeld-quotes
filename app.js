@@ -1,3 +1,5 @@
+'use strict';
+
 // Dependencies
 
 var express        = require('express');
@@ -9,23 +11,28 @@ var dbStart        = require('./db/start');
 
 var router = express.Router();
 var app    = express();
-var env;
+var env    = process.env.NODE_ENV || 'development';
+
+var appDir;
 
 // Config
 
-app.set('views', __dirname + '/app');
+if (env === 'development') {
+  appDir = '/app';
+}
+else if (env === 'production') {
+  appDir = '/dist';
+}
+
+app.set('views', __dirname + appDir);
+app.set('port', process.env.PORT || 5000);
 app.use(router);
-app.use(express.static(__dirname + '/app'));
+app.use(express.static(__dirname + appDir));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.engine('html', require('ejs').renderFile);
-
-// Env Config
-
-env = process.env.NODE_ENV || 'development';
-if (env === 'development') { }
 
 // Routes
 
@@ -69,7 +76,7 @@ app.get('/', function(req, res) {
 
 // Create Server
 
-app.listen(5000, function() {
+app.listen(app.get('port'), function() {
   console.log('The shit works.');
 });
 
