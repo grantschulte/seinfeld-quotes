@@ -7,7 +7,6 @@ var http           = require('http');
 var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-require('dotenv').load();
 var dbStart        = require('./db/start');
 
 var router = express.Router();

@@ -8,7 +8,7 @@ if (env === 'development') {
   dbUrl = 'mongodb://localhost/seinfeld';
 }
 else if (env === 'production') {
-  dbUrl = process.env.MONGOLAB_URI;
+  dbUrl = 'mongodb://heroku_vgnvcn5s:l1vhv313e9g4l8ggjls3m2j5oo@ds033143.mongolab.com:33143/heroku_vgnvcn5s';
 }
 
 mongoose.connect(dbUrl, function(err) {
