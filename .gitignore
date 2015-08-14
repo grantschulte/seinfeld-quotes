@@ -1,6 +1,8 @@
-node_modules
 dist
 .tmp
 .sass-cache
 app/bower_components
-config.js
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
