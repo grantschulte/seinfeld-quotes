@@ -7,13 +7,25 @@ var http           = require('http');
 var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var dbStart        = require('./db/start');
 
 var router = express.Router();
 var app    = express();
 var enviro = process.env.NODE_ENV || 'development';
-
 var appDir;
+
+// Db
+
+var mongoose = require('mongoose');
+var mongoURI = 'mongodb://localhost/seinfeld';
+
+mongoose.connect(process.env.MONGOLAB_URI || mongoURI, function(err) {
+  if(err) {
+    console.log('Connection Error', err, process.env.MONGOLAB_URI);
+  }
+  else {
+    console.log('Connection Successful');
+  }
+});
 
 // Config
 
