@@ -8,6 +8,7 @@ var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var dbStart        = require('./db/start');
+var dbConfig         = require('./db/config');
 
 var router = express.Router();
 var app    = express();
