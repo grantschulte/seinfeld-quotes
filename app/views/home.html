@@ -2,7 +2,9 @@
   <blockquote>
     <p ng-bind="random.body"></p>
     <span class="speak-arrow"></span>
-    <span class="author-image" ng-bind="'-' + random.author"></span>
+    <span class="author-image">
+      <img ng-src="{{ 'https://s3-us-west-1.amazonaws.com/seinfeld-quotes/' + random.author + '.jpg' }}" />
+    </span>
   </blockquote>
 
   <div class="authors">
