@@ -9,6 +9,8 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var dbStart        = require('./db/start');
 
+require('dotenv').load();
+
 var router = express.Router();
 var app    = express();
 var env    = process.env.NODE_ENV || 'development';
