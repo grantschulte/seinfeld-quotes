@@ -10,7 +10,6 @@ var methodOverride = require('method-override');
 
 var router = express.Router();
 var app    = express();
-var enviro = process.env.NODE_ENV || 'development';
 var appDir;
 
 // Db
@@ -29,11 +28,11 @@ mongoose.connect(process.env.MONGOLAB_URI || mongoURI, function(err) {
 
 // Config
 
-if (enviro === 'development') {
+if (process.env.NODE_ENV === 'development') {
   appDir = '/app';
 }
-else if (enviro === 'production') {
-  appDir = '/app';
+else if (process.env.NODE_ENV === 'production') {
+  appDir = '/dist';
 }
 
 app.set('views', __dirname + appDir);

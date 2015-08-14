@@ -1,7 +1,7 @@
-dist
 .tmp
 .sass-cache
 app/bower_components
+dist/bower_components
 /node_modules
 npm-debug.log
 .DS_Store
