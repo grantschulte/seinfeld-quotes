@@ -7,22 +7,21 @@ var http           = require('http');
 var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var dbStart        = require('./db/start');
-
 require('dotenv').load();
+var dbStart        = require('./db/start');
 
 var router = express.Router();
 var app    = express();
-var env    = process.env.NODE_ENV || 'development';
+var enviro = process.env.NODE_ENV || 'development';
 
 var appDir;
 
 // Config
 
-if (env === 'development') {
+if (enviro === 'development') {
   appDir = '/app';
 }
-else if (env === 'production') {
+else if (enviro === 'production') {
   appDir = '/app';
 }
 
