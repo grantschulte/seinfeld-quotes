@@ -21,7 +21,9 @@ seinfeldApp.controller('homeCtrl', ['$rootScope', '$scope', 'Quotes',
     };
 
     $scope.updateAuthor = function(author) {
-      Quotes.setAuthor(author);
+      Quotes.setAuthor(author, function() {
+        $scope.getQuotes();
+      });
     };
 
     $scope.isCurrentAuthor = function(author) {

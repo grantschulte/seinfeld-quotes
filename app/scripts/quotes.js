@@ -5,8 +5,9 @@ seinfeldApp.factory('Quotes', [ '$http', '$q', function($http, $q) {
   var service = {};
   var _author = '';
 
-  service.setAuthor = function(author) {
+  service.setAuthor = function(author, cb) {
     _author = author;
+    if (cb) { cb() };
   };
 
   service.getAuthor = function() {
