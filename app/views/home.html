@@ -3,7 +3,7 @@
     <p ng-bind="random.body"></p>
     <span class="speak-arrow"></span>
     <span class="author-image">
-      <img ng-src="{{ 'https://s3-us-west-1.amazonaws.com/seinfeld-quotes/' + random.author + '.jpg' }}" />
+      <img ng-src="{{ random.avatar }}" />
     </span>
   </blockquote>
 
@@ -27,6 +27,8 @@
       </div>
     </div>
   </div>
+
+  <div class="by"><a href="http://www.gjschulte.com" target="_blank">By G.J.Schulte</a></div>
 </div>
 
 <div class="overlay"></div>

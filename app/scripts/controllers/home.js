@@ -1,7 +1,7 @@
 'use strict';
 
-seinfeldApp.controller('homeCtrl', ['$rootScope', '$scope', 'Quotes',
-  function ($rootScope, $scope, Quotes) {
+seinfeldApp.controller('homeCtrl', ['$rootScope', '$scope', 'Quotes', 'AWS_URL',
+  function ($rootScope, $scope, Quotes, AWS_URL) {
     $scope.authors = Quotes.authors;
     $scope.selectionMenuOn = false;
     $scope.showRefresh = true;
@@ -16,6 +16,7 @@ seinfeldApp.controller('homeCtrl', ['$rootScope', '$scope', 'Quotes',
       Quotes.getAll().then(function(data) {
         $scope.quotes = data;
         $scope.random = getRandom(data);
+        $scope.random.avatar = AWS_URL + $scope.random.author + '_trans.png';
         $scope.dataLoaded = true;
       });
     };

@@ -5,8 +5,8 @@ var seinfeldApp = angular.module('seinfeldApp', [
   'ngSanitize'
 ]);
 
-seinfeldApp.value('appName', 'Seinfeld Quotes');
-
+seinfeldApp.value('APP_NAME', 'Seinfeld Talk');
+seinfeldApp.value('AWS_URL', 'https://s3-us-west-1.amazonaws.com/seinfeld-quotes/');
 seinfeldApp.value('backgroundColors', [
   '255,153,0',
   '50,153,187',

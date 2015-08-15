@@ -240,6 +240,28 @@ header {
       img {
         width: 100px;
         height: 100px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .by {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+    z-index: 2;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
