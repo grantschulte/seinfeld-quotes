@@ -30,6 +30,20 @@ seinfeldApp.factory('Quotes', [ '$http', '$q', function($http, $q) {
     return deferred.promise;
   };
 
+  service.create = function(quote) {
+    var deferred = $q.defer();
+
+    $http({
+      method: 'POST',
+      url: API_URL,
+      data: quote
+    }).success(function(data) {
+      deferred.resolve(data);
+    });
+
+    return deferred.promise;
+  };
+
   service.authors = {
     0: 'Jerry',
     1: 'George',

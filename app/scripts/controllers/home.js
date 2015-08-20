@@ -42,7 +42,7 @@ seinfeldApp.controller('homeCtrl', ['$rootScope', '$scope', 'Quotes', 'AWS_URL',
     });
 
     var getRandom = function(data) {
-      if (!data.length) { return false; }
+      if (!data.length) { return {}; }
       var random = Math.floor(Math.random() * data.length);
       return data[random];
     };

@@ -7,10 +7,8 @@ var http           = require('http');
 var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-
-var router = express.Router();
-var app    = express();
-var appDir;
+var router         = express.Router();
+var app            = express();
 
 // Db
 
@@ -19,10 +17,10 @@ var mongoURI = 'mongodb://localhost/seinfeld';
 
 mongoose.connect(process.env.MONGOLAB_URI || mongoURI, function(err) {
   if(err) {
-    console.log('Connection Error', err, process.env.MONGOLAB_URI);
+    console.log('DB: Connection Error', err, process.env.MONGOLAB_URI);
   }
   else {
-    console.log('Connection Successful');
+    console.log('DB: Connection Successful');
   }
 });
 
@@ -30,11 +28,12 @@ mongoose.connect(process.env.MONGOLAB_URI || mongoURI, function(err) {
 
 app.set('views', __dirname + '/app');
 app.set('port', process.env.PORT || 5000);
+app.set('view engine', 'ejs');
 app.use(router);
 app.use(express.static(__dirname + '/app'));
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.engine('html', require('ejs').renderFile);
 
@@ -50,7 +49,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// development error handler
+// Error Handling
 
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
@@ -62,26 +61,30 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
+if (app.get('env') === 'production') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: {}
+    });
   });
-});
+}
 
 // Root Route
 
 app.get('/', function(req, res) {
-  res.render('index.html');
+  res.render('index');
 });
 
 // Create Server
 
-app.listen(app.get('port'), function() {
-  console.log('The shit works.');
+var server = app.listen(app.get('port'), function() {
+  console.log('Yo, we here.');
+  console.log('Environment: ', app.get('env'));
+  console.log('Views: ', app.get('views'));
+  console.log('Host: ', server.address().address);
+  console.log('Port: ', server.address().port);
 });
 
 // module.exports = app;

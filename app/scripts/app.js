@@ -25,6 +25,10 @@ seinfeldApp.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'views/search.html',
       controller: 'searchCtrl'
     })
+    .when('/admin/create', {
+      templateUrl: 'views/admin/create.html',
+      controller: 'createCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

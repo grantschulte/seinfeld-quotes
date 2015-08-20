@@ -1,0 +1,13 @@
+<form name="addQuoteForm" ng-submit="addQuote()">
+  <div class="form-row">
+    <label for="author">Author</label>
+    <input id="author" name="author" ng-model="quote.author" type="text" />
+  </div>
+
+  <div class="form-row">
+    <label for="body">Quote</label>
+    <textarea id="body" name="body" ng-model="quote.body"></textarea>
+  </div>
+
+  <button type="submit">Add Quote</button>
+</form>
