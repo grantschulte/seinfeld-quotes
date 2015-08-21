@@ -9,7 +9,8 @@
     "express": "~4.0.0",
     "method-override": "~1.0.0",
     "mongoose": "^4.1.2",
-    "morgan": "~1.0.0"
+    "morgan": "~1.0.0",
+    "newrelic": "^1.22.0"
   },
   "devDependencies": {
     "connect-livereload": "~0.2.0",
