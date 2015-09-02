@@ -3,7 +3,7 @@ seinfeldApp.directive('stretch', ['$rootScope', function($rootScope) {
     restrict: 'A',
     link: function(scope, el) {
       var bg = $('.bg');
-      var total = 6;
+      var total = 7;
 
       var initBg = function() {
         var id = Math.floor(Math.random() * total);
